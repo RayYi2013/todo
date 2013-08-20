@@ -1,0 +1,21 @@
+<% layout('../layout') -%>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+
+
+
+<form action='/todo/create' method='post' accept-charset='utf-8'>
+    <input type='text' name='content' />  <input class='btn btn-default' type='submit' name='Add'/>
+</form>
+
+<% todos.forEach( function(todo){ %>
+    <p>
+        <span>
+            <a href='/todo/edit/<%= todo._id%>' title='Update this todo item'><%= todo.content %></a>
+        </span>
+        <span>
+            <a class='btn btn-default' href='/todo/destroy/<%=todo.id%>' title='Delete this todo item'>Delete</a>
+        </span>
+    </p>
+<%});%>
